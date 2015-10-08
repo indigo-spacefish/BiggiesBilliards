@@ -144,3 +144,11 @@ MEDIA_ROOT = '/var/www/biggiesbilliards.com/media/'
 # Also set MEDIA_ROOT and STATIC_ROOT if serving files locally
 # Nevermind, STATIC_ROOT required, or it complains. example below:
 # STATIC_ROOT = "/var/www/example.com/static/"
+
+# Oscar display settings
+
+OSCAR_SHOP_NAME = "Biggie's Billiards"
+
+# Oscar currency settings
+
+OSCAR_DEFAULT_CURRENCY = "USD"

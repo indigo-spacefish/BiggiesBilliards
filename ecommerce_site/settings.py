@@ -102,11 +102,11 @@ SITE_ID = 1
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'ENGINE': 'django.db.backends.mysql',
+	'NAME': 'biggiesbilliards',
+        'USER': 'root',
+        'PASSWORD': 'billiards',
+        'HOST': 'localhost',
         'PORT': '',
         'ATOMIC_REQUESTS': True, # recommended
     }

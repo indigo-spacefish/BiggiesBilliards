@@ -1,17 +1,19 @@
 import os
-from django.db import models
-# from oscar.apps.catalogue.abstract_models import AbstractProduct, AbstractProductClass, AbstractProductCategory
 from oscar.apps.catalogue.models import Product, ProductClass, ProductCategory
+
+product_classes = ProductClass.objects.all()
+product_categories = ProductCategory.objects.all()
 
 def make_product(title):
     new_product = Product.objects.get_or_create(
         title=title,
-        product_class=models.ForeignKey(ProductClass),
-        categories=models.ManyToManyField(ProductCategory, through='ProductCategory'),
+        product_class=product_classes[0],
+#        categories=ProductCategory,
     )
-    new_product.save()
+    new_product[0].save()
+    return new_product
 
-pool_cues = ['meow', 'Leia', 'tasty']
+pool_cues = ['cue_1', 'cue_2', 'cue_3']
 
 def populate():
     for x in pool_cues:

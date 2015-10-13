@@ -148,6 +148,7 @@ MEDIA_ROOT = '/var/www/biggiesbilliards.com/media/'
 # Oscar display settings
 
 OSCAR_SHOP_NAME = "Biggie's Billiards"
+THUMBNAIL_FORMAT = 'PNG'
 
 # Oscar currency settings
 

@@ -25,10 +25,7 @@ def make_product(title):
     return new_product
 
 
-raw_data = '''Pro-H
-P02-F
-P03-F
-P04-F
+raw_data = '''P04-F
 P05-F
 P06-F
 P07-F

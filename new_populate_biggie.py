@@ -1,10 +1,13 @@
 import os
 from oscar.apps.catalogue.models import Product, ProductClass, ProductCategory, Category
+from oscar.apps.partner.models import StockRecord, Partner
 
 
 product_classes = ProductClass.objects.all()
 product_categories = Category.objects.all()
 pechauer_cat = product_categories[1]
+partners = Partner.objects.all()
+biggies_partner = partners[2]
 
 
 def make_product(title):
@@ -22,30 +25,35 @@ def make_product(title):
 
     new_cat[0].save()
 
+    new_record = StockRecord.objects.get_or_create(
+        partner=biggies_partner,
+        product=new_product[0],
+        partner_sku=title,
+    )
+
+    new_record[0].save()
+
     return new_product
 
 
-raw_data = '''P04-F
-P05-F
-P06-F
-P07-F
-P08-F
-P09-F
-P10-F
-P11-F
-P12-F
-P13-F
-P14-F
-P15-F
-P16-F
-P17-F
-P18-F
-P19-F
-P20-F
-P21-F
-P22-F
-P23-F
-P24-F'''
+raw_data = '''JP03-M
+JP04-M
+JP05-M
+JP06-M
+JP07-M
+JP08-M
+JP09-M
+JP10-M
+JP11-M
+JP12-M
+JP13-M
+JP14-M
+JP15-M
+JP16-M
+JP17-M
+JP18-M
+JP19-M
+JP20-M'''
 
 split_data = raw_data.split('\n')
 
@@ -62,6 +70,3 @@ if __name__ == '__main__':
     print "Starting Biggies population script..."
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce_site.settings')
     populate()
-
-
-
